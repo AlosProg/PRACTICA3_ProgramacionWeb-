@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>GRAFICAR COCHE</title>
+    </head>
+    <body onload="CanvasMaster.showCanvas()">
+        <figure>
+            <canvas id="graficar coche" width="700" height="300" style="border:1px solid #021a18;"> 
+                PARECE QUE NO TIENES HTML5.
+            </canvas>
+            <figcaption> 
+                Filtro degradado letrero coche
+            </figcaption>
+        </figure>
+
+        <script language="JavaScript">
+            CanvasMaster=new Object();
+            CanvasMaster.showCanvas=function() {
+                canvas= document.getElementById('graficar coche');
+                contexto = canvas.getContext('2d');
+
+                coche = new Image();
+                coche.onload = function() {
+                    contexto.drawImage(coche, 100, 100);
+                }
+                coche.src = "coche.jpg";
+
+                letrero = new Image();
+                letrero.src = "letrero.jpg";
+                letrero.onload = function() {
+                    contexto.drawImage(letrero, 250, 220);
+                    letreroGradient=contexto.createLinearGradient(0,150,700,150); // coordenadas según el canvas
+                    letreroGradient.addColorStop(0.5,"rgba(255, 0, 255,.8)"); // color morado
+                    letreroGradient.addColorStop(0.4,'rgba(255, 255, 0,.6)'); // color amarillo
+                    contexto.fillStyle=letreroGradient;
+                    contexto.fillRect(250,220,65,50); // 0,0,700, 300 se ve todo el canvas relleno. Con 250,220,65,50 solo el letrero
+                    contexto.fill();
+                }
+            }
+        </script>
+        </body >
+    </html>

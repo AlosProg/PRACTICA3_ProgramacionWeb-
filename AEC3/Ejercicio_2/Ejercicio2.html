@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IMPRESIÓN CAMISETA</title>
+    <style type="text/css">
+        body {
+            font-family: Verdana;
+            color: #8A0917;
+        }
+        a{
+            text-decoration:none;
+            color:#595241;
+            margin-left:250px;
+        }
+        figcaption{
+            margin-left: 100px;
+        }
+</style>
+</head>
+<body>
+    <figure>
+        <canvas id="superposición" width="550" height="300" style="border:1px solid #021a18;" >
+            PARECE QUE NO TIENES HTML5.
+        </canvas>
+        <figcaption> 
+            Vamos a hacer una impresión en la camiseta:
+        </figcaption>
+    </figure>
+    
+    <script language="JavaScript">
+        micanvas = document.getElementById("superposición");
+        contextNow = micanvas.getContext('2d');
+        canvasMaster = new Object(); 
+
+        canvasMaster.mostrarCamiseta=function(){ // Dibujamos la camiseta
+            contextNow.beginPath();
+            contextNow.moveTo(200,20); // posición de inicio
+            contextNow.lineTo(140,80); // comenzamos a dibujar la camiseta...
+            contextNow.lineTo(175,110);
+            contextNow.lineTo(200,86);
+            contextNow.lineTo(200,240);
+            contextNow.lineTo(350,240);
+            contextNow.lineTo(350,86);
+            contextNow.lineTo(375,110);
+            contextNow.lineTo(410,80);
+            contextNow.lineTo(350,20);
+            contextNow.lineTo(300,20);
+            RADCON=0.01745329251994;
+            twelve=0;
+            three = RADCON * 90;
+            six = RADCON * 180;
+            nine = RADCON * 270;
+            contextNow.arc(275,20,25,twelve,six,false);
+            contextNow.lineTo(200,20);
+            contextNow.closePath();
+            contextNow.fillStyle ="#008000"; // color de relleno
+            contextNow.fill(); // rellenar
+            contextNow.strokeStyle = "#ff8000";
+            contextNow.lineWidth = 7; // ancho de letras
+            contextNow.stroke(); // contorno
+        }
+
+        canvasMaster.impresion = function(){ // Creamos rectángulo y letras de la camiseta
+            contextNow.beginPath();
+            contextNow.clearRect (220,85,110,50);
+            contextNow.moveTo(230,95); // posición de inicio
+            contextNow.lineTo(230,125);
+            contextNow.lineTo(250,125);
+            contextNow.lineTo(250,95);
+            contextNow.moveTo(260,125); // otra posición
+            contextNow.lineTo(260,95);
+            contextNow.lineTo(280,125);
+            contextNow.lineTo(280,95);
+            contextNow.moveTo(300,95); // otra posición
+            contextNow.lineTo(300,125);
+            contextNow.moveTo(290,95); // otra posición
+            contextNow.lineTo(310,95);
+            contextNow.moveTo(290,125); // otra posición
+            contextNow.lineTo(310,125);
+            contextNow.strokeStyle = "#ff8000";
+            contextNow.lineWidth = 7; // ancho de letras
+            contextNow.stroke(); // contorno
+            contextNow.closePath ();
+        }
+    </script>
+    <article>
+        <section>
+            <p><a href="#" onclick="canvasMaster.mostrarCamiseta ()">Mostrar camiseta</a></p>   
+        </section>
+        <section>
+            <p><a href="#"  onclick="canvasMaster.impresion()">Impresión camiseta</a></p>    
+        </section>
+    </article>
+</body >
+</html>

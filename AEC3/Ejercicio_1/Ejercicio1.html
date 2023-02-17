@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DIBUJO DE CASA</title>
+    <style type="text/css">
+        body {
+            font-family:Verdana;
+            color:#000;
+        }
+        figcaption{
+            margin-left: 80px;
+        }
+    </style>
+</head>
+<body onload="canvasMaster.showCanvas()">
+    <figure>
+        <canvas id="casita" width="200" height="100" > 
+            PARECE QUE NO TIENES HTML5.
+        </canvas>
+        <figcaption> 
+            Dalí estuvo aquí
+        </figcaption>
+    </figure>
+    
+    <script language="JavaScript">
+        micanvas = document.getElementById("casita");
+        contextNow = micanvas.getContext('2d');
+
+        canvasMaster = new Object();
+        canvasMaster.showCanvas=function(){
+            contextNow.beginPath();
+            contextNow.moveTo(148,20); // posicion de inicio
+            contextNow.lineTo(180,50); // comenzamos a dibujar la casa...
+            contextNow.lineTo(170,50);
+            contextNow.lineTo(170,80);
+            contextNow.lineTo(162,80);
+            contextNow.lineTo(162,64);
+            contextNow.lineTo(150,64);
+            contextNow.lineTo(150,80);
+            contextNow.lineTo(128,80);
+            contextNow.lineTo(128,50);
+            contextNow.lineTo(120,50);
+            contextNow.lineTo(132,38);
+            contextNow.lineTo(132,24);
+            contextNow.lineTo(140,24);
+            contextNow.lineTo(140,30);
+            contextNow.lineTo(148,20);
+            contextNow.closePath();
+            contextNow.fillStyle ="#0000FF"; // color de relleno
+            contextNow.fill(); // rellenar
+            contextNow.stroke(); // contorno
+            contextNow.beginPath();
+            contextNow.moveTo(134,56); // comenzamos la ventana...
+            contextNow.lineTo(142,56);
+            contextNow.lineTo(142,62);
+            contextNow.lineTo(134,62);
+            contextNow.lineTo(134,56);
+            contextNow.closePath ();
+            contextNow.fillStyle ="#fff"; // color de relleno
+            contextNow.fill(); // rellenar
+            contextNow.stroke(); // contorno
+        }
+    </script>
+</body >
+</html>
